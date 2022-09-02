@@ -41,7 +41,11 @@ export default function Navbar() {
             <div class={tw`hidden sm:ml-6 sm:block`}>
               <div class={tw`flex`}>
                 {ROUTES.map(({ href, label }) => (
-                  <LinkWrapper key={href} href={href}>
+                  <LinkWrapper
+                    key={href}
+                    href={href}
+                    isActive={window?.location?.pathname.startsWith(href)}
+                  >
                     {label}
                   </LinkWrapper>
                 ))}
@@ -94,6 +98,7 @@ export default function Navbar() {
               key={href}
               classNames="block text-base"
               href={href}
+              isActive={window?.location?.pathname.startsWith(href)}
               onClick={() => toggle(false)}
             >
               {label}

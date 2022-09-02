@@ -6,6 +6,7 @@ interface Props {
   children: ComponentChildren;
   classNames?: string;
   href: string;
+  isActive?: boolean;
   onClick?: () => void;
 }
 
@@ -13,11 +14,9 @@ export default function LinkWrapper({
   children,
   classNames,
   href,
+  isActive,
   onClick,
 }: Props) {
-  // const { pathname } = useLocation();
-  const isActive = false; // pathname.startsWith(href);
-
   return (
     <a
       class={tw`${isActive ? "text-white" : "text-gray-300"} ${
