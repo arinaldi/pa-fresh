@@ -1,7 +1,3 @@
-/** @jsx h */
-/** @jsxFrag Fragment */
-import { Fragment, h } from "preact";
-import { tw } from "@twind";
 import { Head } from "$fresh/runtime.ts";
 import { AppProps } from "$fresh/server.ts";
 
@@ -17,7 +13,7 @@ export default function App(props: AppProps) {
         <title>Perfect Albums</title>
         <link rel="icon" href="https://fav.farm/🍋" />
       </Head>
-      <body class={tw`h-full dark:bg-gray-800`}>
+      <body class="h-full dark:bg-gray-800">
         <Navbar />
         <props.Component />
       </body>

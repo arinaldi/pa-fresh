@@ -1,6 +1,4 @@
-/** @jsx h */
-import { ComponentChildren, h, VNode } from "preact";
-import { tw } from "@twind";
+import { ComponentChildren, VNode } from "preact";
 
 interface Props {
   children: ComponentChildren;
@@ -16,14 +14,14 @@ export default function Layout({
   titleAction,
 }: Props) {
   return (
-    <div class={tw`mx-auto p-4 ${maxWidth ?? "max-w-7xl"}`}>
-      <div class={tw`mb-4 flex items-center justify-between`}>
-        <h1 class={tw`text-2xl font-semibold dark:text-white sm:text-3xl`}>
+    <div class={`mx-auto p-4 ${maxWidth ?? "max-w-7xl"}`}>
+      <div class="mb-4 flex items-center justify-between">
+        <h1 class="text-2xl font-semibold dark:text-white sm:text-3xl">
           {title}
         </h1>
         {titleAction}
       </div>
-      <main class={tw`relative flex-auto`}>{children}</main>
+      <main class="relative flex-auto">{children}</main>
     </div>
   );
 }

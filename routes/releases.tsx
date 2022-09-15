@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
-import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 
 import { formatReleases, sortByDate } from "../utils/index.ts";
@@ -37,15 +34,15 @@ export const handler: Handlers<Release[]> = {
 export default function NewReleases({ data: releases }: PageProps<Release[]>) {
   return (
     <Layout title={<span>New Releases</span>}>
-      <div class={tw`grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3`}>
+      <div class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {Object.entries(formatReleases(releases))
           .sort(sortByDate)
           .map(([date, data]) => (
             <div key={date}>
-              <h4 class={tw`text-xl font-semibold dark:text-white`}>{date}</h4>
-              <ul class={tw`ml-6 list-disc p-1`}>
+              <h4 class="text-xl font-semibold dark:text-white">{date}</h4>
+              <ul class="ml-6 list-disc p-1">
                 {data.map((release) => (
-                  <li key={release.id} class={tw`dark:text-white`}>
+                  <li key={release.id} class="dark:text-white">
                     <span>
                       {release.artist} &ndash; {release.title}
                     </span>

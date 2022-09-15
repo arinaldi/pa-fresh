@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
-import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 
 import { supabase } from "../utils/supabase.ts";
@@ -37,22 +34,22 @@ export default function FeaturedSongs({ data: songs }: PageProps<Song[]>) {
   return (
     <Layout title={<span>Featured Songs</span>}>
       <div
-        class={tw`grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`}
+        class="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         {songs.map((song) => (
           <div
-            class={tw`rounded-md border border-gray-200 bg-white p-4 shadow-sm dark:border-black dark:bg-gray-700`}
+            class="rounded-md border border-gray-200 bg-white p-4 shadow-sm dark:border-black dark:bg-gray-700"
             key={song.id}
           >
-            <div class={tw`mb-1 text-xl font-semibold dark:text-white`}>
+            <div class="mb-1 text-xl font-semibold dark:text-white">
               {song.title}
             </div>
-            <div className={tw`mb-2 text-gray-500 dark:text-white`}>
+            <div className="mb-2 text-gray-500 dark:text-white">
               {song.artist}
             </div>
             <div>
               <a
-                className={tw`text-blue-700 hover:underline dark:text-blue-500`}
+                className="text-blue-700 hover:underline dark:text-blue-500"
                 href={song.link}
                 rel="noopener noreferrer"
                 target="_blank"

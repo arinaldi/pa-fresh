@@ -1,6 +1,3 @@
-/** @jsx h */
-import { h } from "preact";
-import { tw } from "@twind";
 import { Handlers, PageProps } from "$fresh/server.ts";
 
 import { formatFavorites, sortDesc } from "../utils/index.ts";
@@ -46,7 +43,7 @@ export default function TopAlbums({ data: favorites }: PageProps<Album[]>) {
         <span>
           Top Albums
           <span
-            class={tw`ml-3 rounded-md bg-gray-100 p-1 text-xl font-semibold dark:bg-gray-700 sm:text-2xl`}
+            class="ml-3 rounded-md bg-gray-100 p-1 text-xl font-semibold dark:bg-gray-700 sm:text-2xl"
           >
             {favorites.length.toLocaleString()}
           </span>
@@ -54,35 +51,35 @@ export default function TopAlbums({ data: favorites }: PageProps<Album[]>) {
       }
     >
       <div
-        class={tw`grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4`}
+        class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         {Object.entries(formatFavorites(favorites))
           .sort(sortDesc)
           .map(([year, data]) => (
             <div key={year}>
-              <div class={tw`flex items-center justify-between`}>
+              <div class="flex items-center justify-between">
                 <h4
                   id={year}
-                  class={tw`text-xl font-semibold dark:text-white`}
+                  class="text-xl font-semibold dark:text-white"
                 >
                   {year}
                 </h4>
                 <div
-                  class={tw`mr-4 rounded-md bg-gray-100 px-2 py-1 text-xl font-semibold dark:bg-gray-700 dark:text-white`}
+                  class="mr-4 rounded-md bg-gray-100 px-2 py-1 text-xl font-semibold dark:bg-gray-700 dark:text-white"
                 >
                   {data.length.toLocaleString()}
                 </div>
               </div>
-              <ul class={tw`ml-6 list-disc p-1`}>
+              <ul class="ml-6 list-disc p-1">
                 {data.map(({ artist, title }, index) => {
                   const query = encodeURI(`${artist} ${title}`);
                   const url = `${SPOTIFY_URL}/${query}`;
 
                   return (
-                    <li key={index} class={tw`dark:text-white`}>
+                    <li key={index} class="dark:text-white">
                       {artist} &ndash;{" "}
                       <a
-                        class={tw`text-blue-700 hover:underline dark:text-blue-500`}
+                        class="text-blue-700 hover:underline dark:text-blue-500"
                         href={url}
                         rel="noopener noreferrer"
                         target="_blank"
